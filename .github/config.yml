@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: SONiC Support Forums
+    url: https://groups.google.com/forum/#!forum/sonicproject
+    about: Please ask and answer questions here.
+  - name: Issue Reporting Information
+    url: https://github.com/sonic-net/SONiC/wiki#report-issues
+    about: Read SONiC Wiki for more information on reporting issues.
