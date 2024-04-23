@@ -9,7 +9,7 @@ body:
       value: |
         Thanks for taking the time to fill out this bug report!
   - type: textarea
-    id: description
+    id: tc-description
     attributes:
       label: Issue Description
       description: What happened?
@@ -17,7 +17,7 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: platform
+    id: tc-platform
     attributes:
       label: Is it platform specific
       description: Platform name
@@ -35,18 +35,19 @@ body:
     validations:
       required: true
   - type: textarea
-    id: logs
+    id: tc-logs
     attributes:
       label: Relevant log output
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
   - type: textarea
-    id: logs
+    id: tc-output
     attributes:
       label: Output of `show version`
       description: Please copy and paste output of `show version`
       render: shell
   - type: markdown
+    id: tc-attach-logs
     attributes:
       value: |
         Attach debug file (if any) from: `sudo generate_dump`
