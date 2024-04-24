@@ -80,3 +80,5 @@ body:
         Attach debug file (if any) from: `sudo generate_dump` or other logs.
   - type: textarea
     id: tc-attachments
+    attributes:
+      label: Attach files (if any)
