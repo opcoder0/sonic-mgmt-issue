@@ -80,6 +80,3 @@ body:
         Attach debug file (if any) from: `sudo generate_dump` or other logs.
   - type: textarea
     id: tc-attachments
-    attributes:
-      label: Output of `show version`
-      description: Please copy and paste output of `show version`. This will be automatically formatted into code, so no need for backticks
