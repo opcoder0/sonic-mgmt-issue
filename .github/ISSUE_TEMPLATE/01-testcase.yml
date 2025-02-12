@@ -25,11 +25,8 @@ body:
       label: What type of issue are you reporting?
       options:
         - label: Test Gap
-          description: Test case is missing or not working as expected
         - label: Bug Report
-          description: Something isn't working as expected
         - label: Enhancement
-          description: New feature or request
   - type: textarea
     id: tc-description
     attributes:
