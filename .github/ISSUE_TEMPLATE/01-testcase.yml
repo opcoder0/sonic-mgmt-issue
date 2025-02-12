@@ -23,7 +23,7 @@ body:
     id: tc-issue-type
     attributes:
       label: What type of issue are you reporting?
-      choices:
+      options:
         - label: Test Gap
           description: Test case is missing or not working as expected
         - label: Bug Report
