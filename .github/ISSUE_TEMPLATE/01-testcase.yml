@@ -1,7 +1,7 @@
-name: Test Case Bug Report
-description: File a bug report for a test case.
-title: "[Bug]: "
-labels: ["bug", "triage", "testcase"]
+name: SONiC Test Cases Issue Report
+description: File a test gap, bug report or enhancement for a test case.
+title: "[Test Case] "
+labels: []
 projects: ["sonic-mgmt"]
 body:
   - type: markdown
@@ -18,13 +18,24 @@ body:
     id: tc-contact-links
     attributes:
       value: |
-        Please ask and answer questions here at the [SONiC Support Forums](https://groups.google.com/forum/#!forum/sonicproject)        
+        Please ask and answer questions here at the [SONiC Support Forums](https://groups.google.com/forum/#!forum/sonicproject)
+  - type: checkboxes
+    id: tc-issue-type
+    attributes:
+      label: What type of issue are you reporting?
+      choices:
+        - label: Test Gap
+          description: Test case is missing or not working as expected
+        - label: Bug Report
+          description: Something isn't working as expected
+        - label: Enhancement
+          description: New feature or request
   - type: textarea
     id: tc-description
     attributes:
       label: Issue Description
       description: What happened?
-      placeholder: Describe the issue and step to reproduce the issue
+      placeholder: Describe the issue or requirement and steps to reproduce the issue
     validations:
       required: true
   - type: textarea
