@@ -42,4 +42,4 @@ jobs:
             });
           }
           EOF
-          node --input-type=module apply-label-tmp.mjs
+          node apply-label-tmp.mjs
