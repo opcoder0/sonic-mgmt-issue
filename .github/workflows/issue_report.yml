@@ -13,8 +13,8 @@ jobs:
       - run: |
           cat << EOF > apply-label-tmp.mjs
           import { Octokit } from "@octokit/action";
-          import { context } from "@actions/toolkit/github";
-
+          import { github } from "@actions/github";
+          const context = github.context;
           const octokit = new Octokit();
           const issueType = context.payload.issue.body.match(/Issue Type\s*(.*)/)[1];
           console.log('Issue Type:', issueType);
