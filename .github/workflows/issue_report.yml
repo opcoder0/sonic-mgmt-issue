@@ -6,7 +6,7 @@ jobs:
   apply-type-label:
     runs-on: ubuntu-latest
     steps:
-        uses: actions/github-script@v7
+      - uses: actions/github-script@v7
         with:
           script: |
             const issueType = context.payload.issue.body.match(/Issue Type\s*(.*)/)[1];
