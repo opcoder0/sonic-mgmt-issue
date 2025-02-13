@@ -11,7 +11,7 @@ jobs:
           node-version: 20
       - run: npm install @octokit/action
       - run: |
-          cat << EOF > apply-label-tmp.js
+          cat << EOF > apply-label-tmp.mjs
           import { Octokit } from "@octokit/action";
           const octokit = new Octokit();
 
@@ -42,4 +42,4 @@ jobs:
             });
           }
           EOF
-          node --input-type=module apply-label-tmp.js
+          node --input-type=module apply-label-tmp.mjs
