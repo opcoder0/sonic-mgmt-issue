@@ -22,7 +22,7 @@ body:
   - type: dropdown
     id: tc-issue-type
     attributes:
-      label: Issue Type:
+      label: Issue Type
       options:
         - label: Test Gap
         - label: Bug Report
