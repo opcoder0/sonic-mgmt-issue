@@ -13,8 +13,9 @@ jobs:
       - run: |
           cat << EOF > apply-label-tmp.mjs
           import { Octokit } from "@octokit/action";
-          const octokit = new Octokit();
+          import { context } from "@actions/github";
 
+          const octokit = new Octokit();
           const issueType = context.payload.issue.body.match(/Issue Type\s*(.*)/)[1];
           console.log('Issue Type:', issueType);
           if (issueType === 'Test Gap') {
