@@ -10,14 +10,15 @@ jobs:
         with:
           script: |
             const issueType = context.payload.issue.body.match(/Issue Type\s*(.*)/)[1];
-            const labels = {
-              'Test Gap': 'test-gap',
-              'Bug Report': 'bug',
-              'Enhancement': 'enhancement'
-            };
-            if issueType in labels {
-              await github.issues.addLabels({
-                issue_number: context.issue.number,
-                labels: [labels[issueType]]
-              });
-            }
+            console.log('Issue Type:', issueType);
+            // const labels = {
+            //   'Test Gap': 'test-gap',
+            //   'Bug Report': 'bug',
+            //   'Enhancement': 'enhancement'
+            // };
+            // if issueType in labels {
+            //   await github.issues.addLabels({
+            //     issue_number: context.issue.number,
+            //     labels: [labels[issueType]]
+            //   });
+            // }
