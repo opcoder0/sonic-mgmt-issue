@@ -25,7 +25,6 @@ jobs:
             console.log(selectedCheckboxes); // Output: ["Bug", "Enhancement", "Regression"]
           } else {
             console.log("No 'Issue Type' section found.");
-            return;
           }
           console.log('Issue Body:', input);
           console.log('Issue Type Selection:', issueTypeSection);
