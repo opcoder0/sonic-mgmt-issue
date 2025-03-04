@@ -16,12 +16,15 @@ jobs:
           import { Octokit } from "@octokit/action";
           import { context } from "@actions/github";
           const octokit = new Octokit();
-          const issueTypeMatches = context.payload.issue.body.match(/Issue Type\n\n(.\s*)\n\n/);
+          const issueTypeMatches = context.payload.issue.body.match(/(?<=Issue Type:)([\s\S]*?)(?=Is it platform specific)/g);
           console.log('Issue Body:', context.payload.issue.body);
           console.log('Issue Type Matches:', issueTypeMatches);
-          const issueTypes = issueTypeMatches ? issueTypeMatches[1].split(/[\n,]+/).map(type => type.trim()) : [];
-          console.log('Issue Types:', issueTypes);
-          issueTypes.forEach(issueType => {
+          var selectedCheckBoxes = [];
+          if issueTypeMatches {
+            selectedCheckBoxes = [...issueTypeMatches[0].matchAll(/- \[x\]([^\n]+)/g)].map(match => match[1].trim());
+          }
+          console.log('Selected Checkboxes:', selectedCheckBoxes);
+          selectedCheckBoxes.forEach(issueType => {
             if (issueType === 'Test Gap') {
               octokit.rest.issues.addLabels({
                 issue_number: context.issue.number,
