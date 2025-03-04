@@ -26,10 +26,10 @@ body:
     attributes:
       label: Issue Type
       options:
-        - Bug
-        - TestGap
-        - Enhancement
-        - Regression
+        - label: Bug
+        - label: Test Gap
+        - label: Enhancement
+        - label: Regression
     validations:
       required: true
 

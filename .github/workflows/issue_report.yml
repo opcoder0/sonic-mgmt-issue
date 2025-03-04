@@ -18,7 +18,7 @@ jobs:
           const octokit = new Octokit();
           const issueType = context.payload.issue.body.match(/Issue Type\s*(.*)/)[1];
           console.log('Issue Type:', issueType);
-          if (issueType === 'TestGap') {
+          if (issueType === 'Test Gap') {
             octokit.rest.issues.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
