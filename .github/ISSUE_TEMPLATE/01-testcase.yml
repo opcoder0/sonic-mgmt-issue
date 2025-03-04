@@ -1,6 +1,6 @@
 name: SONiC Test Cases Issue Report
 description: File a bug report, test gap, enhancement or regression for a test case.
-title: "[Bug|Test Gap|Enhancement|Regression] "
+title: " "
 labels: []
 projects: ["sonic-mgmt"]
 body:
