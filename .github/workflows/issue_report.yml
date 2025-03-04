@@ -16,40 +16,43 @@ jobs:
           import { Octokit } from "@octokit/action";
           import { context } from "@actions/github";
           const octokit = new Octokit();
-          const issueType = context.payload.issue.body.match(/Issue Type\s*(.*)/)[1];
-          console.log('Issue Type:', issueType);
-          if (issueType === '- [x] Test Gap') {
-            octokit.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['test-gap']
-            });
-          }
-          if (issueType === '- [x] Bug') {
-            octokit.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['bug']
-            });
-          }
-          if (issueType === '- [x] Enhancement') {
-            octokit.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['enhancement']
-            });
-          }
-          if (issueType === '- [x] Regression') {
-            octokit.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['regression']
-            });
-          }
+          const issueTypeMatches = context.payload.issue.body.match(/Issue Type\s*-\s*(.*)/);
+          const issueTypes = issueTypeMatches ? issueTypeMatches[1].split(/[\n,]+/).map(type => type.trim()) : [];
+          console.log('Issue Types:', issueTypes);
+          issueTypes.forEach(issueType => {
+            if (issueType === 'Test Gap') {
+              octokit.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: ['test-gap']
+              });
+            }
+            if (issueType === 'Bug') {
+              octokit.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: ['bug']
+              });
+            }
+            if (issueType === 'Enhancement') {
+              octokit.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: ['enhancement']
+              });
+            }
+            if (issueType === 'Regression') {
+              octokit.rest.issues.addLabels({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                labels: ['regression']
+              });
+            }
+          });
           EOF
           node apply-label-tmp.mjs
         env:
