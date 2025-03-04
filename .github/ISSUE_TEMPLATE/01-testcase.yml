@@ -26,8 +26,8 @@ body:
     attributes:
       label: Issue Type
       options:
-        - Bug Report
-        - Test Gap
+        - Bug
+        - TestGap
         - Enhancement
         - Regression
     validations:
