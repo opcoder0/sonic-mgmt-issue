@@ -16,7 +16,7 @@ jobs:
           import { Octokit } from "@octokit/action";
           import { context } from "@actions/github";
           const octokit = new Octokit();
-          const issueTypeMatches = context.payload.issue.body.match(/Issue Type\s*-\s*(.*)/);
+          const issueTypeMatches = context.payload.issue.body.match(/Issue Type\n\n(.\s*)\n\n/);
           console.log('Issue Body:', context.payload.issue.body);
           console.log('Issue Type Matches:', issueTypeMatches);
           const issueTypes = issueTypeMatches ? issueTypeMatches[1].split(/[\n,]+/).map(type => type.trim()) : [];
