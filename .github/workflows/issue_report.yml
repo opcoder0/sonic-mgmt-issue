@@ -18,7 +18,7 @@ jobs:
           const octokit = new Octokit();
           const issueType = context.payload.issue.body.match(/Issue Type\s*(.*)/)[1];
           console.log('Issue Type:', issueType);
-          if (issueType === '[x] Test Gap') {
+          if (issueType === '- [x] Test Gap') {
             octokit.rest.issues.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
@@ -26,7 +26,7 @@ jobs:
               labels: ['test-gap']
             });
           }
-          if (issueType === '[x] Bug') {
+          if (issueType === '- [x] Bug') {
             octokit.rest.issues.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
@@ -34,7 +34,7 @@ jobs:
               labels: ['bug']
             });
           }
-          if (issueType === '[x] Enhancement') {
+          if (issueType === '- [x] Enhancement') {
             octokit.rest.issues.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
@@ -42,7 +42,7 @@ jobs:
               labels: ['enhancement']
             });
           }
-          if (issueType === '[x] Regression') {
+          if (issueType === '- [x] Regression') {
             octokit.rest.issues.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
