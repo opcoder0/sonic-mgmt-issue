@@ -1,7 +1,7 @@
-name: SONiC Test Cases Issue Report
-description: File a bug report, test gap, enhancement or regression for a test case.
-title: "Title of the Issue"
-labels: []
+name: Report a regression
+description: Report a regression issue
+title: "Regression:"
+labels: [regression, Bug]
 projects: ["sonic-mgmt"]
 body:
   - type: markdown
@@ -15,26 +15,8 @@ body:
         
         For more information about reporting issues, see [SONiC Issue Reporting Page](https://github.com/sonic-net/SONiC/wiki#report-issues)
 
-  - type: markdown
-    id: tc-contact-links
-    attributes:
-      value: |
-        Please ask and answer questions here at the [SONiC Support Forums](https://groups.google.com/forum/#!forum/sonicproject)
-
-  - type: checkboxes
-    id: tc-issue-type
-    attributes:
-      label: Issue Type
-      options:
-        - label: Bug
-        - label: Test Gap
-        - label: Enhancement
-        - label: Regression
-    validations:
-      required: true
-
   - type: dropdown
-    id: tc-platform
+    id: tc-reg-platform
     attributes:
       label: Is it platform specific
       description: Platform name
@@ -53,7 +35,7 @@ body:
       required: true
 
   - type: dropdown
-    id: tc-severity
+    id: tc-reg-severity
     attributes:
       label: Importance or Severity
       options:
@@ -65,77 +47,50 @@ body:
       required: true
 
   - type: input
-    id: tc-regression-previous-working-version
+    id: tc-reg-previous-working-version
     attributes:
-      label: Previous Working Version (only for Regression)
+      label: Previous Working Version
       description: Specify the last known version where the functionality worked as expected
       placeholder: e.g., 202311 or Git SHA
     validations:
       required: false
 
   - type: textarea
-    id: tc-description
-    attributes:
-      label: Description of the bug, test gap, enhancement or regression
-      description: Description of the bug, test gap, enhancement or regression
-      placeholder: Description of the bug, test gap, enhancement or regression
-    validations:
-      required: true
-
-  - type: markdown
-    id: tc-note-1
-    attributes:
-      value: |
-        ## Field information:
-          - For a **Bug Report** provide **Steps to Reproduce** the issue
-          - For a **Test Gap** provide **Affected Area**
-          - For an **Enhancement** provide **Current Behavior**
-          - For a **Regression** provide **Steps to Reproduce**
-
-  - type: textarea
-    id: tc-str-aa-cb
+    id: tc-reg-str
     attributes:
       label: Steps to Reproduce
       description: Steps to Reproduce
     validations:
       required: true
 
-  - type: markdown
-    id: tc-note-2
-    attributes:
-      value: |
-        ## Field information:
-          - For a **Bug Report** provide the **Actual and expected behavior**
-          - For a **Test Gap** provide **Impact of missing tests and proposed tests**
-          - For an **Enhancement** provide **Proposed Behavior and use case**
-          - For a **Regression** provide **Impact of Regression**
-
   - type: textarea
-    id: tc-ab-impact-pb
+    id: tc-reg-impact
     attributes:
-      label: Actual Behavior and Expected Behavior or Impact or Proposed Behavior
-      description: Actual Behavior and Expected Behavior or Impact or Proposed Behavior
+      label: Impact of this regression
+      description: Impact of this regression
     validations:
       required: true
 
   - type: textarea
-    id: tc-logs
+    id: tc-reg-logs
     attributes:
       label: Relevant log output
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
+
   - type: textarea
-    id: tc-output
+    id: tc-reg-output
     attributes:
       label: Output of `show version`
       description: Please copy and paste output of `show version`. This will be automatically formatted into code, so no need for backticks
       render: shell
+
   - type: markdown
-    id: tc-attach-logs
+    id: tc-reg-attach-logs
     attributes:
       value: |
         Attach debug file (if any) from: `sudo generate_dump` or other logs.
   - type: textarea
-    id: tc-bug-attachments
+    id: tc-reg-attachments
     attributes:
       label: Attach files (if any)
