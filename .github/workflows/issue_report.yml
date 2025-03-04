@@ -20,7 +20,7 @@ jobs:
           console.log('Issue Body:', context.payload.issue.body);
           console.log('Issue Type Matches:', issueTypeMatches);
           var selectedCheckBoxes = [];
-          if issueTypeMatches {
+          if (issueTypeMatches) {
             selectedCheckBoxes = [...issueTypeMatches[0].matchAll(/- \[x\]([^\n]+)/g)].map(match => match[1].trim());
           }
           console.log('Selected Checkboxes:', selectedCheckBoxes);
