@@ -71,7 +71,7 @@ body:
       description: Specify the last known version where the functionality worked as expected
       placeholder: e.g., 202311 or Git SHA
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: tc-description
